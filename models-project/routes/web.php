@@ -1,12 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('students-record',[StudentController::class,'insertData']);
+Route::get('employee',[EmployeeController::class,'insertData']);
 
-Route::get('students-data',[StudentController::class,'dataShow']);
+Route::get('employee-delete',[EmployeeController::class,'deleteData']);
+
+Route::get('employee-update',[EmployeeController::class,'updateData']);
+
+Route::get('employee-show',[EmployeeController::class,'showData']);
+

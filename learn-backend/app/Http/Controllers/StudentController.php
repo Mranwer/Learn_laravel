@@ -11,8 +11,8 @@ class StudentController extends Controller
 //     function insertData(){
 //     $result = DB::table('students')->insert([
       
-//     'name' => 'Farhan',
-//     'email'=>'farhan@123',
+//     'name' => 'golu',
+//     'email'=>'aryan@123',
 //     'phone'=>'0987654321'
 
 //    ]);
@@ -24,31 +24,33 @@ class StudentController extends Controller
 //    }
 //    }
 
-// function updateData(){
-//     $result = DB::table('students')->where('id','1')->update([
-      
-//     'name' => 'Raushan',
-//     'email'=>'raushan@123',
-//     'phone'=>'12345678890'
+function updateData(){
+    $result = DB::table('students')->where('id','4')->update([
+      'id'=> '1',
+    'name' => 'Aman',
+    'email'=>'Akash@123',
+    'phone'=>'1234567890'
 
-//    ]);
-//    if($result){
-//     echo "your data has been Updated";
-//    }
-//    else{
-//     echo "your data has been not updated";
-//    }
-//    }
-    
-
-function deleteData(){
-    $result = DB::table('students')->where('id','2')->delete();
+   ]);
    if($result){
-    echo "your data has been deleted";
+    echo "your data has been Updated";
    }
    else{
-    echo "your data has been not deleted";
+    echo "your data has been not updated";
    }
    }
+    
+
+// function deleteData(){
+//     $result = DB::table('students')->where('name','golu')->delete();
+//    if($result){
+//     echo "your data has been deleted";
+//    }
+//    else{
+//     echo "your data has been not deleted";
+//    }
+//    }
 
 }
+
+

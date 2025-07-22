@@ -7,4 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('student',[StudentController::class,'deleteData']);
+Route::get('student',[StudentController::class,'insertData']);
+
+Route::get('studentDelete',[StudentController::class,'deleteData']);
+
+Route::get('studentUpdate',[StudentController::class,'updateData']);
+
+
