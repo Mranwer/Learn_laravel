@@ -32,7 +32,11 @@ return [
 
         'local' => [
             'driver' => 'local',
+<<<<<<< HEAD
+            'root' => storage_path('app'),
+=======
             'root' => storage_path('app/private'),
+>>>>>>> 109f193 (make session , login,logout)
             'serve' => true,
             'throw' => false,
             'report' => false,

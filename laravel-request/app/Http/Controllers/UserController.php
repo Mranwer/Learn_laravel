@@ -26,12 +26,24 @@ class UserController extends Controller
     //     echo "<br><br>";       
     //     echo $req->ip();
     // }
-    function login(Request $req){
-      $req->session()->put('name',$req->input('name'));
-      return redirect('profile');
+    // function login(Request $req){
+    //   $req->session()->put('name',$req->input('name'));
+    //    $req->session()->put('allsession',$req->input());
+    //   return redirect('profile');
+    // }
+    // function logout(Request $req){
+    //     session()->pull('allsession');
+    //     return redirect('profile');
+    // }
+
+    function login(Request $request){
+    //  $request->session()->put('user',$request->input('name')); 
+    $request->session()->put('allfield',$request->input()); 
+     return redirect('profile');
     }
-    function logout(Request $req){
-        session::flush();
-        return redirect('user-form');
+
+    function logout(Request $request){
+      session()->pull('allfield');
+       return redirect('profile');
     }
 }
