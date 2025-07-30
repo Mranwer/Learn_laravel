@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use Illuminate\Support\Facades\Storage;
+
 
 use Illuminate\Http\Request;
 
@@ -38,7 +40,7 @@ class StudentController extends Controller
     function deleteData($id){
        $isDeleted = Student::destroy($id);
         if($isDeleted){
-            echo "<script>alert('delete success')</script>";
+            
             return redirect('/');
         }
         else{
@@ -46,6 +48,39 @@ class StudentController extends Controller
         }
 
     }
+
+
+    function editData($id){
+         $student = Student::find($id);
+        return view('student-edit',['editStudent'=>$student]);
+    }
+
+        function editRecord(Request $request,$id){
+
+        $student = Student::find($id);
+       if ($request->hasFile('image')) {
+        // Optional: delete old file if it exists
+        if ($student->image && Storage::exists('public/' . $student->image)) {
+            Storage::delete('public/' . $student->image);
+        }
+
+        // ✅ Store new file
+        $filePath = $request->file('image')->store('public');
+        $filename = basename($filePath); // Get just the file name
+        $student->image = $filename;
+    }
+
+        $student->name=$request->name;
+        $student->email=$request->email;
+        $student->phone=$request->phone;
+
+        if($student->save()){
+            return redirect('/');
+        }
+        else{
+            return "update not successfully";
+        }
        
     }
 
+}

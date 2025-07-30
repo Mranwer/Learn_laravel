@@ -10,5 +10,7 @@ Route::view('student-add','student-add');
 Route::get('/',[StudentController::class,'showdata']);
 Route::post('add-data',[StudentController::class,'addData']);
 Route::get('delete-data/{id}',[StudentController::class,'deleteData']);
+Route::get('edit-data/{id}',[StudentController::class,'editData']);
+Route::put('update-record/{id}',[StudentController::class,'editRecord']);
 
 

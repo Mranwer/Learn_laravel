@@ -13,7 +13,7 @@
   <table class="table table-bordered table-striped text-center">
     <thead class="table-dark">
       <tr>
-        <th>S NO.</th>
+        <th>s.no</th>
         <th>Image</th>
         <th>Name</th>
         <th>Email</th>
@@ -34,10 +34,13 @@
         <td>{{$data->email}}</td>
         <td>{{$data->phone}}</td>
         <td>
-            <a href="delete-data/{{$data->id}}">
+            <a href="delete-data/{{$data->id}}"  onclick="return confirm('Are you sure you want to delete this record?')">
             <i class="fa-solid fa-trash"></i>
             </a>
+
+            <a href="edit-data/{{$data->id}}">
             <i class="fa-solid fa-pen"></i>
+            </a>
         </td>
       </tr>
     @endforeach
