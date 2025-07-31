@@ -24,7 +24,7 @@ class StudentController extends Controller
         $student->phone=$request->phone;
         $student->save();
         if($student){
-            return "successfully";
+            return redirect('/');
         }
         else{
             echo "Operation failed";
@@ -82,5 +82,11 @@ class StudentController extends Controller
         }
        
     }
+
+    function search(Request $request){
+    $search = Student::where('name','like',"%$request->search%")->get();
+    return view('student-list',['student'=>$search]);
+
+}
 
 }

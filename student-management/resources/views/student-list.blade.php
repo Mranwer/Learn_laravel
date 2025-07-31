@@ -11,6 +11,16 @@
 <div class="container mt-5">
   <h2 class="mb-4">User Information</h2>
   <table class="table table-bordered table-striped text-center">
+    <form action="search-data" method="get">
+      <div class="d-flex mx-auto gap-4 mb-4" style="width: 400px">
+
+      <input type="text" class="form-control bg-light border-success" name="search" placeholder="search by name">
+      <button class="btn btn-warning">Search</button>
+      </div>
+    </form>
+    <a href="student-add">
+    <button class="btn btn-success">Add Data</button>
+    </a>
     <thead class="table-dark">
       <tr>
         <th>s.no</th>
