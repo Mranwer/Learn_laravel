@@ -33,7 +33,7 @@ class StudentController extends Controller
     }
 
     function showdata(){
-        $result = Student::all();
+       $result= Student::paginate(5);
         return view('student-list',['student'=>$result]);
     }
 
@@ -83,10 +83,16 @@ class StudentController extends Controller
        
     }
 
-    function search(Request $request){
-    $search = Student::where('name','like',"%$request->search%")->get();
-    return view('student-list',['student'=>$search]);
+    public function search(Request $request)
+{
+    $search = $request->input('search');
 
+    $students = Student::where('name', 'like', "%{$search}%")
+                       ->paginate(5)
+                       ->appends(['search' => $search]);
+
+    return view('student-list', ['student' => $students, 'search' => $search]);
 }
+
 
 }
